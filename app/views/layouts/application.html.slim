@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    title Store
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+
+          a.btn.btn-navbar data-toggle="collapse" data-target=".nav-collapse"
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+
+          a.brand Store
+
+          .nav-collapse
+            ul.nav
+              li= link_to 'Home', root_path
+
+          .nav-collapse.pull-right
+            ul.nav
+              li.dropdown
+                a.dropdown-toggle href="#" data-toggle="dropdown"
+                  | Admin
+                  b.caret
+                ul.dropdown-menu
+                  li= link_to 'Authors', authors_path
+                  li= link_to 'Books', books_path
+
+
+    .container
+      .row
+        .span9
+          .well= yield
+        .span3
+          #sidebar.well= render 'sidebar' rescue render 'home/sidebar'

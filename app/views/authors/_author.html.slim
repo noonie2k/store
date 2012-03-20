@@ -1,0 +1,5 @@
+tr
+  td= author.full_name
+  td
+    =link_to '', edit_author_path(author), class: 'icon-pencil'
+    = link_to '', author, method: :delete, confirm: "Really delete author #{author.full_name}", class: 'icon-trash'

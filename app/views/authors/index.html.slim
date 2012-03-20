@@ -1,0 +1,16 @@
+.page-header
+  h1
+    | Authors 
+    small 
+      | Who's been writing stuff?
+
+table.table.table-striped
+  thead
+    tr
+      th Name
+      th
+  tbody
+    - @authors.each do |author|
+      = render author
+
+= will_paginate @authors
