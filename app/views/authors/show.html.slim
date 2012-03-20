@@ -1,2 +1,14 @@
-h1 Author#show
-p Find me in app/views/author/show.html.slim
+.page-header
+  h1
+    = @author
+    small
+      = pluralize(@author.books.count, 'book')
+
+table.table.striped
+  thead
+    tr
+      th= "Books by #{@author}"
+  tbody
+    - @author.books.each do |book|
+      tr
+        td= link_to book.title, book

@@ -6,5 +6,6 @@ class BookTest < ActiveSupport::TestCase
     
     assert book.invalid?
     assert_equal "can't be blank", book.errors[:title].join('; ')
+    assert_equal "can't be blank", book.errors[:isbn].join('; ')
   end
 end

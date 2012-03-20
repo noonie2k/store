@@ -10,7 +10,7 @@ class AuthorTest < ActiveSupport::TestCase
   end
 
   test "the string representation of the author should be the full name" do
-    author = Author.new FactoryGirl.attributes_for :author
+    author = FactoryGirl.build :author
 
     assert_equal "First Last", author.to_s
   end

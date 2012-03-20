@@ -23,13 +23,48 @@ class BooksControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get create" do
+  test "should create book" do
+    assert_difference('Book.count') do
+      post :create, { book: FactoryGirl.attributes_for(:book) }
+    end
+    assert_redirected_to books_path
   end
 
-  test "should get update" do
+  test "should render new" do
+    book = FactoryGirl.build(:book)
+    book.title = ''
+
+    assert_no_difference('Book.count') do
+      post :create, { book: book.attributes }
+    end
+    assert_response :success
   end
 
-  test "should get destroy" do
+  test "should update book" do
+    book = FactoryGirl.create(:book)
+    book_update = FactoryGirl.build(:book)
+    book_update.title = 'New Title'
+
+    put :update, { id: book.to_param, book: book_update }
+    assert_redirected_to book_path(assigns(:book))
+  end
+
+  test "should render edit" do
+    book = FactoryGirl.create(:book)
+    book_update = FactoryGirl.build(:book)
+    book_update.title = ''
+
+    put :update, { id: book.to_param, book: book_update.attributes }
+    assert_response :success
+  end
+
+  test "should destroy book" do
+    book = FactoryGirl.create(:book)
+
+    assert_difference('Book.count', -1) do
+      delete :destroy, id: book.to_param
+    end
+    assert_redirected_to books_path
   end
 
 end

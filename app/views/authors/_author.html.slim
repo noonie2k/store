@@ -1,5 +1,6 @@
 tr
-  td= author.full_name
+  td= link_to author, author
+  td= link_to author.books.count, books_path({author: author})
   td
     =link_to '', edit_author_path(author), class: 'icon-pencil'
-    = link_to '', author, method: :delete, confirm: "Really delete author #{author.full_name}", class: 'icon-trash'
+    = link_to '', author, method: :delete, confirm: "Really delete author #{author}", class: 'icon-trash'

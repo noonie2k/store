@@ -1,0 +1,6 @@
+tr
+  td= link_to book.title, book
+  td= link_to book.author, book.author
+  td
+    =link_to '', edit_book_path(book), class: 'icon-pencil'
+    = link_to '', book, method: :delete, confirm: "Really delete book #{book.title}", class: 'icon-trash'
