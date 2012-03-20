@@ -1,5 +1,6 @@
 = simple_form_for @book do |f|
   = f.input :title
+  = f.input :isbn, placeholder: 'ISBN 123-456-789-0'
   = f.input :synopsis, as: :text
   = f.association :author
   = f.button :submit

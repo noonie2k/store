@@ -22,6 +22,11 @@ html
             ul.nav
               li= link_to 'Home', root_path
 
+          .nav-collapse
+            ul.nav
+              = form_tag search_path, class: 'navbar-search pull-left' do
+                = text_field_tag :search, params[:search], class: 'search-query span2', placeholder: 'Search'
+
           .nav-collapse.pull-right
             ul.nav
               li.dropdown
@@ -34,6 +39,8 @@ html
 
 
     .container
+      - if notice
+        .alert= notice
       .row
         .span9
           .well= yield

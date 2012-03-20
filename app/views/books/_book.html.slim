@@ -1,5 +1,6 @@
 tr
   td= link_to book.title, book
+  td= book.isbn
   td= link_to book.author, book.author
   td
     =link_to '', edit_book_path(book), class: 'icon-pencil'

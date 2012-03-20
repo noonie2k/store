@@ -3,4 +3,8 @@ Store::Application.routes.draw do
 
   resources :authors
   resources :books
+
+  controller :search do
+    post 'search' => :perform
+  end
 end
