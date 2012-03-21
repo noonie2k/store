@@ -6,6 +6,16 @@ class BooksControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should display books for author" do
+    author = FactoryGirl.create(:author)
+    book = FactoryGirl.build(:book)
+    book.author = author
+    book.save
+
+    get :index, { author: author.id }
+    assert_response :success
+  end
+
   test "should get show" do
     book = FactoryGirl.create(:book)
     get :show, {id: book.id}
