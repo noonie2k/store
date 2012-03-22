@@ -1,0 +1,6 @@
+= simple_form_for @user, html: { autocomplete: :off } do |f|
+  = f.input :username
+  = f.input :name
+  = f.input :password
+  = f.input :password_confirmation
+  = f.button :submit

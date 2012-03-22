@@ -2,6 +2,7 @@
 FactoryGirl.define do
   factory :user do
     username 'user'
+    name 'Site User'
     password 'secret'
     password_confirmation 'secret'
     admin false
@@ -9,6 +10,7 @@ FactoryGirl.define do
 
   factory :admin, class: 'User' do
     username 'admin'
+    name 'Site Administrator'
     password 'secret'
     password_confirmation 'secret'
     admin true
