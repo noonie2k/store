@@ -1,4 +1,6 @@
 class SearchController < ApplicationController
+  skip_before_filter :require_login
+
   def perform
     isbn = /^ISBN\s((?=[-0-9xX ]{17}$)(?:[0-9]+[- ]){4}[0-9]*[xX0-9]|(?=[-0-9xX ]{13}$)(?:[0-9]+[- ]){3}[0-9]*[xX0-9])$/
 

@@ -1,4 +1,6 @@
 class AuthorsController < ApplicationController
+  skip_before_filter :require_login, only: [:index, :show]
+
   def index
     @authors = Author.paginate(page: params[:page])
   end

@@ -30,18 +30,28 @@ html
                 = text_field_tag :search, params[:search], class: 'search-query span2', placeholder: 'Search'
 
           .nav-collapse.pull-right
-            ul.nav
+            ul.nav.pull-right
               li.dropdown
-                a.dropdown-toggle href="#" data-toggle="dropdown"
-                  | Login
-                  b.caret
-                ul.dropdown-menu= render 'sessions/form'
+                - if session[:user_id]
+                  a.dropdown-toggle href="#" data-toggle="dropdown"
+                    = User.find(session[:user_id]).name
+                    b.caret
+                  ul.dropdown-menu
+                    li= link_to 'Logout', logout_path
+                - else
+                  a.dropdown-toggle href="#" data-toggle="dropdown"
+                    | Login
+                    b.caret
+                  ul.dropdown-menu= render 'sessions/form'
                   
 
 
     .container
       - if notice
-        .alert= notice
+        .alert.alert-info= notice
+      - if alert
+        .alert.alert-error= alert
+
       .row
         .span9
           .well= yield

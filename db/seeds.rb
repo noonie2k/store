@@ -6,4 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.delete_all
-User.create(username: 'admin', password_digest: BCrypt::Password.create('secret'))
+User.create(username: 'admin', name: 'Site Administrator', password: 'secret', password_confirmation: 'secret')

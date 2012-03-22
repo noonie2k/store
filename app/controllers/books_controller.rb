@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  skip_before_filter :require_login, only: [:index, :show]
+
   def index
     @author = Author.find(params[:author]) if params[:author] rescue nil
     if @author

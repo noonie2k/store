@@ -3,4 +3,5 @@
   = f.input :isbn, placeholder: 'ISBN 123-456-789-0'
   = f.input :synopsis, as: :text
   = f.association :author
-  = f.button :submit
+  = f.button :submit, class: 'btn-primary'
+  = link_to 'Cancel', books_path
