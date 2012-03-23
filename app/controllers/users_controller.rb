@@ -11,7 +11,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    p params
 
     if @user.save
       session[:user_id] = @user.id

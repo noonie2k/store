@@ -1,0 +1,2 @@
+#!/bin/sh
+yardoc --protected --private -o doc/api/

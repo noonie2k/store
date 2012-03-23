@@ -21,11 +21,12 @@ group :assets do
 end
 
 group :test, :development do
-  gem 'minitest'
-  gem 'term-ansicolor'
-  gem 'turn'
+  gem 'minitest', '~> 2.11.4'
+  gem 'term-ansicolor', '~> 1.0.7'
+  gem 'turn', '~> 0.9.4'
   gem 'factory_girl_rails', '~> 1.7.0'
   gem 'simplecov', '~> 0.6.1'
+  gem 'yard', '~> 0.7.5'
 end
 
 gem 'jquery-rails'
@@ -37,6 +38,9 @@ gem 'simple_form', '~> 2.0.1'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
+
+# Memcache
+gem 'memcache-client'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

@@ -1,9 +1,5 @@
 module BooksHelper
   def book_titles
-    books = []
-    Book.all.each do |book|
-      books << book.title
-    end
-    books
+    Rails.cache.fetch(:book_titles) { BookSweeper.collect_book_titles }
   end
 end

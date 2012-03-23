@@ -16,3 +16,7 @@
 
 # Ignore Coverage Reports
 /public/coverage
+
+# Ignore API Documentation
+.yardoc
+/doc/api

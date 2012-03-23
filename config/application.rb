@@ -50,6 +50,9 @@ module Store
     # parameters by using an attr_accessible or attr_protected declaration.
     # config.active_record.whitelist_attributes = true
 
+    # Enable Memcached Caching
+    config.cache_store = :mem_cache_store
+
     # Enable the asset pipeline
     config.assets.enabled = true
 
