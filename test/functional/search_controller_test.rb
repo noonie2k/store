@@ -16,7 +16,7 @@ class SearchControllerTest < ActionController::TestCase
   test "searching for an exising book by title redirects to the book" do
     book = FactoryGirl.create(:book)
 
-    post :perform, { search: book.title }
+    post :perform, { search: 'Book: ' + book.title }
     assert_redirected_to book_path(book)
   end
 end
