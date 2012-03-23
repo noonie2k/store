@@ -26,8 +26,8 @@ html
 
           .nav-collapse
             ul.nav
-              = form_tag search_path, class: 'navbar-search pull-left' do
-                = text_field_tag :search, params[:search], class: 'search-query span2', placeholder: 'Search'
+              = form_tag search_path, class: 'navbar-search pull-left', autocomplete: :off do
+                = text_field_tag :search, params[:search], class: 'search-query span2', placeholder: 'Search', %s{data-provide} => 'typeahead', %s{data-source} => book_titles.to_json
 
           .nav-collapse.pull-right
             ul.nav.pull-right
