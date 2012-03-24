@@ -11,15 +11,16 @@ class SearchController < ApplicationController
     unless path
       matches = /^(\w+): (.+)$/.match(params[:search])
 
-      if matches && matches.length == 2
+      if matches && matches.length == 3
         type = matches[1]
         term = matches[2]
 
         case type
         when 'Book'
-          path = book_path(Book.find_by_title(term))
+          path = Book.find_by_title(term)
         when 'Author'
-          path = author_path(Author.find_by_name(term))
+          name = term.split(' ');
+          path = Author.where("first_name = ?", name[0]).where("last_name = ?", name[1])[0] rescue nil
         end
       end
     end
