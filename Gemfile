@@ -27,6 +27,7 @@ group :test, :development do
   gem 'factory_girl_rails', '~> 1.7.0'
   gem 'simplecov', '~> 0.6.1'
   gem 'yard', '~> 0.7.5'
+  gem 'mocha', '~> 0.10.5'
 end
 
 gem 'jquery-rails'
